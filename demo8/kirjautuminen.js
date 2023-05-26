@@ -1,25 +1,24 @@
 document.addEventListener("DOMContentLoaded", onkoKirjautunut);
 
 function onkoKirjautunut() {
-    if (localStorage.getItem("kirjautunut") === "kylla") {
-        document.getElementById("tervetuloa_teksti").textContent = "Tervetuloa " + localStorage.getItem("nimi");
-        document.getElementById("kirjautumis_lomake").style.display = "none";
-        document.getElementById("kirjaudu_ulos").style.display = "block";
-    } else {
-        document.getElementById("kirjaudu_ulos").style.display = "none";
-    }
+  if (localStorage.getItem("kirjautunut") === "kylla") {
+    document.getElementById('tervetuloa_teksti').textContent += " "; // 空白を追加
+    document.getElementById('tervetuloa_teksti').textContent += localStorage.getItem("nimi");
+    document.getElementById('kirjaudu_nappi').style.display = "none"  // kun kirjautunut "kirjaudu" nappi haviää
+  }else{
+    document.getElementById('uloskirjaudu_nappi').style.display = "none";  //index sivusta ottaa pois "kirjaudu ulos" nappi
+  }
 }
 
 function kirjaudu() {
     localStorage.setItem("nimi", document.getElementById("nimi").value);
     localStorage.setItem("kirjautunut", "kylla");
-    document.getElementById("kirjaudu_ulos").style.display = "block";
 }
 
 function kirjauduUlos() {
-    localStorage.removeItem("nimi");
-    localStorage.removeItem("kirjautunut");
-    document.getElementById("tervetuloa_teksti").textContent = "Tervetuloa";
-    document.getElementById("kirjautumis_lomake").style.display = "block";
-    document.getElementById("kirjaudu_ulos").style.display = "none";
+  localStorage.clear();
+  document.getElementById('uloskirjaudu_nappi').style.display = ""
+  document.getElementById('kirjaudu_nappi').style.display = "none"
 }
+
+

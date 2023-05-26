@@ -9,8 +9,11 @@
 
 <body>
     <p id="tervetuloa_teksti">Tervetuloa</p>
-
-    <button id="kirjaudu_ulos" onclick="kirjauduUlos()" style="display: none;">Kirjaudu ulos</button>
+    <form id="kirjautumis_lomake">
+        <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
+        <button id="kirjaudu_nappi" type="submit" value="Kirjaudu sisään" onClick='kirjaudu()'>Kirjaudu sisään</button>
+        <button id="uloskirjaudu_nappi" type="submit" value="Kirjaudu ulos" onClick='kirjauduUlos()'>Kirjaudu ulos</button>
+    </form>
 
 </body>
 
